@@ -92,7 +92,7 @@ onMounted(() => {
     :width="width"
     :height="height"
     class="main"
-    :class="{ 'cursor': history.length * 5 > width }"
+    :class="{ 'cursor': history.length * step > width }"
   />
   <p class="count">{{ startOffset }}</p>
 </template>
