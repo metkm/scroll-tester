@@ -68,6 +68,10 @@ const handleWheel = (event: WheelEvent) => {
     cy += step
   }
 
+  if (cy < 0 || cy > window.innerHeight) {
+    cy = window.innerHeight / 2
+  }
+
   draw(px - drawOffset.value, py, cx - drawOffset.value, cy)
 
   history.value.push({
