@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    background-color: var(--color-neutral-950);
+    color: var(--color-white);
+    color-scheme: dark;
+  }
+}
