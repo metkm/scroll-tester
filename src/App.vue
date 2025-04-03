@@ -57,6 +57,16 @@ const handleWheel = (event: WheelEvent) => {
     @wheel="handleWheel"
     class="flex items-center min-h-screen overflow-y-hidden"
   >
+    <button
+      @click="() => {
+        currentEventIndex = 0
+        events = [0]
+      }"
+      class="fixed top-5 left-5 bg-neutral-800 rounded px-8 py-2"
+    >
+      Clear
+    </button>
+
     <div
       class="gap-4 relative h-1 overflow-visible"
       :style="{
@@ -66,21 +76,25 @@ const handleWheel = (event: WheelEvent) => {
       <div
         v-for="(_, i) in events"
         :key="i"
-        class="absolute w-20 shrink-0"
+        class="absolute w-20 shrink-0 flex items-center justify-center"
         :style="{
           height: `${Math.abs(events[i])}px`,
           left: `${(80 + 4) * i}px`,
           ...(events[i] < 0
             ? {
                 bottom: 0,
-                backgroundColor: 'var(--color-green-500)',
+                backgroundColor: 'var(--color-green-700)',
               }
             : {
                 top: 0,
-                backgroundColor: 'var(--color-red-500)',
+                backgroundColor: 'var(--color-red-700)',
               }),
         }"
-      />
+      >
+        <p class="font-bold text-white">
+          {{ events[i] }}
+        </p>
+      </div>
     </div>
   </main>
 </template>
